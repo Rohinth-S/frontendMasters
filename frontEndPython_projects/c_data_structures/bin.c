@@ -1,5 +1,6 @@
 #include<stdio.h>
 // #include <conio.h>
+//  Printing all strings of binary in C language
 int main(){
     void bin(int , char[]);
     int num;
