@@ -17,7 +17,9 @@ def binary_search(list, target):
      
 numbers = [1,2,3,4,5,6,7,8,9]
 # result = binary_search(numbers,12)
-result = binary_search(numbers,6)
+print("Enter Your target value")
+target = int(input(";>"))
+result = binary_search(numbers,target)
 
 def verify(index):
     if result is not None:
