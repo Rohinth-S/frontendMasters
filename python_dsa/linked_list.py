@@ -10,12 +10,16 @@ class Node:
 
     def __repr__(self):
         return "<Node data: %s>" % self.data
+
+
+
 class LinkedList:
 
     """ 
     Singly linked list
     
     """
+    # node = LinkedList()
     def search(self, key):
         """
 
@@ -57,9 +61,16 @@ class LinkedList:
     head  = None
     def __init__(self):
         self.head = None
+
+
+
     
     def isEmpty(self):
         return self.head == None
+
+
+
+
 
     def size(self):
         """
@@ -74,6 +85,9 @@ class LinkedList:
 
         return count
 
+
+
+
     def add(self, data):
         """ 
         Adds new Node containing data at the head of the list 
@@ -84,3 +98,49 @@ class LinkedList:
         new_node = Node(data)
         new_node.next_node = self.head
         self.head = new_node
+
+
+    def insert(self, data, index):
+        """ Insert a new node containing data at index position 
+         INsertion takes o(1) time but finding the node at the 
+         insertion point takes O(n) time. This
+         """
+        if index == 0:
+            self.add(data)
+
+        if index > 0:
+            new = Node(data)
+            position = index
+            current = self.head 
+
+            while position > 1:
+                current = new.next_node
+                position -= 1
+
+            prev_node = current 
+            next_node = current.next_node
+
+            prev_node.next_node = new
+            new.next_node =next_node
+    def remove(self, key):
+        """
+        Removes Nodes containing data that matches the key
+        Returns the node or None if key doesn't exist 
+        Takes o(n) time 
+        
+        """
+        current = self.head
+        previous = None
+        found = False
+
+        while current and not found:
+            if current.data == key and current is self.head:
+                found = True
+                self.head= current.next_node
+            elif current.data == key:
+                found = True
+                previous.next_node = current.next_node
+            else:
+                previous = current 
+                current = current.next_node
+        return current
