@@ -30,7 +30,7 @@ void count_of_nodes(struct  Node *head){
 
 }
 // Add the items at the end of the List
-void add_at_end(struct node *head , int data){
+struct node * add_at_end(struct node *head , int data){
     struct Node *ptr, *temp;
     ptr = head;
     temp = (struct Node *)malloc(sizeof(struct Node));
@@ -41,6 +41,7 @@ void add_at_end(struct node *head , int data){
         ptr = ptr->link;
     }
     ptr->link = temp;
+    return ptr;
 }
 
 // Printing of data
@@ -77,7 +78,7 @@ int main(){
     // Terminate the list after the third node
     third -> data =66;
     third -> next =NULL;
-    add_at_end(head, 67);
+    head=add_at_end(head, 67);
     
     
     }
